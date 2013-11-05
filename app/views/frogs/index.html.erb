@@ -1,0 +1,13 @@
+<h1>Frogs</h1>
+
+<tbody>
+<% @frogs.each do |frog| %>
+<ol>
+<%= link_to "#{frog.name}", frog %>
+</ol>
+<% end %><br>
+
+</tbody>
+
+<%= link_to "Create New Froggie", new_frog_path %>
+

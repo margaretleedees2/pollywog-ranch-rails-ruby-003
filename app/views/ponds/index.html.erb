@@ -1,0 +1,13 @@
+<h1>Ponds</h1>
+
+<tbody>
+<% @ponds.each do |pond| %>
+<ol>
+<%= link_to "#{pond.name}", pond %>
+</ol>
+<% end %><br>
+
+</tbody>
+
+<%= link_to "Create New Pond", new_pond_path %>
+
