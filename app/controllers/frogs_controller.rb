@@ -9,7 +9,7 @@ class FrogsController < ApplicationController
   #GET /frogs/new
   def new
   	@ponds = Pond.all
-  	@frogs = Frog.new
+  	@frog = Frog.new
   end
 
   #GET /frogs/:id
@@ -19,7 +19,7 @@ class FrogsController < ApplicationController
 
   #POST /frogs
   def create
-  	@frog = Frog.new
+  	@frog = Frog.new(frog_params)
   	#replaced with id logic below
   	if @frog.save
   		redirect_to @frog
@@ -44,13 +44,13 @@ class FrogsController < ApplicationController
   def destroy
   	@frog = Frog.find(params[:id])
   	@frog.destroy
-  	redirect to frogs_url
+  	redirect_to frogs_url
   end
  
  private
     #avi's callback example
   	def get_frog
-  		@frog = Frog.find(params[:id].to_i)
+  		@frog = Frog.find(params[:id])
   	end
 
     #security

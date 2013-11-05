@@ -1,3 +1,15 @@
+<h1>Make New Pond</h1>
+<%= form_for(@pond) do |f| %>
+<ol>
+	Name: <%= f.text_field :name %>
+	Water Type: <%= f.text_field :water_type %>
+	<%= f.submit 'Save' %>
+</ol>
+<% end %>
+
+<%= link_to 'Cancel', ponds_path %>
+
+
 <!--<p>Find me in app/views/ponds/new.html.erb</p> ##### -->
 <!-- <h1>Create a new pond</h1>
 <form action="/ponds" method="post">
@@ -10,14 +22,3 @@
 <a href="/ponds">Cancel</a> -->
 
 <!--#http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html -->
-
-<h1>Make New Pond</h1>
-<%= form_for(@pond) do |f| %>
-<ol>
-	Name: <%= f.text_field :name %>
-	Water Type: <%= f.text_field :water_type %>
-	<%= f.submit 'Save' %>
-</ol>
-<% end %>
-
-<%= link_to 'Cancel', ponds_path %>

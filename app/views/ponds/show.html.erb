@@ -3,18 +3,18 @@
 <p>Resident Frogs and Their Tadpoles:</p>
 <ol>
 	<% @pond.frogs.each do |frog| %>
-		<% link_to "{frog.name}", frog %>
+		<%= link_to "#{frog.name}", frog %>
 		<ol>
 				<% frog.tadpoles.each do |tadpole| %>
-        <% link_to "{tadpole.name}", tadpole %>
+        <%= link_to "#{tadpole.name}", tadpole %>
         <% end %>
 		</ol>
 	<% end %>
 </ol>
 
 <%= link_to 'Back', ponds_path %>
-<%= link_to 'Edit', edit_pond_path(@pond) %> 
-<%= button_to "Delete", @pond, :method => :delete, :class => :destroy, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit Pond', edit_pond_path(@pond) %> 
+<%= link_to "Delete", @pond, :method => :delete, :class => :destroy, data: { confirm: 'Are you sure?' } %>
 
 
 <!-- 

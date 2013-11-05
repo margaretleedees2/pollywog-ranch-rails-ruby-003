@@ -1,11 +1,9 @@
-<h1>Tadpoles#show</h1>
-<p>Find me in app/views/tadpoles/show.html.erb</p>
-<!-- ##### -->
-<h1><%= @tadpole.name %> Tadpole</h1>
-<p>color: <%= @tadpole.color %></p>
-<p>parent: <a href="/frogs/<%= @tadpole.frog.id %>"><%= @tadpole.frog.name %></a></p>
-<p>lives: <a href="/ponds/<%= @tadpole.frog.pond.id %>"><%= @tadpole.frog.pond.name %></a></p>
-<p><strong><a href="/tadpoles/<%= @tadpole.id %>/evolve">Evolve to frog</a></strong></p>
-<a href="/tadpoles">Back</a> | 
-<a href="/tadpoles/<%= @tadpole.id %>/edit">Edit</a> | 
-<a href="/tadpoles/<%= @tadpole.id %>/destroy">Delete</a>
+<h1><%= @tadpole.name %></h1>
+<p>Color: <%= @tadpole.color %></p>
+<p>Parent Frog: <link_to "#{@tadpole.frog.name}", frog_path %>
+<p>Lives in Pond: <link_to "#{@tadpole.frog.pond.name}", pond_path %>
+</p>
+
+<%= link_to 'Cancel', ponds_path %>
+<%= link_to 'Edit', edit_tadpole_path(@tadpole) %> 
+<%= button_to "Delete", @frog, :method => :delete, :class => :destroy, data: { confirm: 'Are you sure?' } %>

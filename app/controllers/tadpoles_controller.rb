@@ -14,13 +14,22 @@ class TadpolesController < ApplicationController
  		#see private method
  	end
 
+  #POST /tadpoles
+  def create
+    @tadpole = Tadpole.new(tadpole_params)
+    #replaced with id logic below
+    if @tadpole.save
+      redirect_to @tadpole
+    end
+  end
+
  	def edit
  		#private method
  		@tadpoles = Tadpole.all
  	end
 
  	def update
- 		if tadpole.update(tadpole_params)
+ 		if @tadpole.update(tadpole_params)
  			redirect_to @tadpole
  		end
  	end
@@ -28,7 +37,7 @@ class TadpolesController < ApplicationController
  	def destroy
  		@tadpole = Tadpole.find(params[:id])
  		@tadpole.destroy
- 		redirect to tadpoles_url
+ 		redirect_to tadpoles_url
  	end
 
  	def evolve
@@ -38,7 +47,7 @@ class TadpolesController < ApplicationController
     @frog.color = @tadpole.color
     @frog.pond = @tadpole.frog.pond
     if @frog.save && @tadpole.destroy
-      redirect_to frogs_url
+      redirect_to tadpoles_url
     end
   end
 

@@ -1,4 +1,11 @@
 <h1>Tadpoles</h1>
+
+<tbody>
 <% @tadpoles.each do |tadpole| %>
-  <p><a href="/tadpoles/<%= tadpole.id %>"><%= tadpole.name %></a></p>
-<% end %>
+<ol>
+	<%= link_to "#{tadpole.name}", tadpole %>
+</ol>
+<% end %><br>
+
+</tbody>
+

@@ -18,14 +18,14 @@ class PondsController < ApplicationController
 
   #POST /ponds
   def create
-  	@pond = Pond.new(pond_params)
+  	Pond.create(pond_params)
   	# @pond.name = params[:name]
   	# @pond.water_type = params[:water_type]
-  	if @pond.save
-  	 redirect_to @pond
-    end
+  	#pond.save
+  	redirect_to ponds_url
   end
 
+  #POST /edit
   def edit
     #see below: replaces @pond = Pond.find(params[:id])
   end
@@ -51,7 +51,7 @@ class PondsController < ApplicationController
   private
     #avi's callback example
   	def get_pond
-  		@pond = Pond.find(params[:id].to_i)
+  		@pond = Pond.find(params[:id])
   	end
 
     #security
