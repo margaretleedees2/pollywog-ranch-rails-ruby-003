@@ -32,13 +32,13 @@ class TadpolesController < ApplicationController
  	end
 
  	def evolve
-    tadpole = Tadpole.find(params[:id])
-    frog = Frog.new
-    frog.name = tadpole.name
-    frog.color = tadpole.color
-    frog.pond = tadpole.frog.pond
-    if frog.save && tadpole.destroy
-      redirect to('/frogs')
+    @tadpole = Tadpole.find(params[:id])
+    @frog = Frog.new
+    @frog.name = @tadpole.name
+    @frog.color = @tadpole.color
+    @frog.pond = @tadpole.frog.pond
+    if @frog.save && @tadpole.destroy
+      redirect_to frogs_url
     end
   end
 

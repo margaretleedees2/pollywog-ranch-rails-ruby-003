@@ -7,7 +7,8 @@ PollywogRanchRailsRuby003::Application.routes.draw do
   resources :frogs
   resources :tadpoles
     
-  
+  get '/frogs/:id/tadpoles/new', to: 'tadpoles#new'
+  get '/tadpoles/:id/evolve', to: 'tadpoles#evolve'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
